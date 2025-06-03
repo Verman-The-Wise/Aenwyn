@@ -1,4 +1,172 @@
+ * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
+    font-family: 'Courier New', 'Monaco', 'Menlo', monospace;
+    line-height: 1.6;
+    color: #e0e0e0;
     background-color: #000;
+    font-size: 14px;
+    font-weight: 500;
+    min-height: 100vh;
+    max-width: 1200px;
+    margin: 0;
+    padding: 2rem;
+}
+
+@media (min-width: 768px) {
+    body {
+        max-width: 600px;
+        margin-left: 4rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    body {
+        max-width: 700px;
+        margin-left: 6rem;
+    }
+}
+
+header {
+    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 1rem;
+    margin-bottom: 2rem;
+}
+
+h1 {
+    font-size: 1.5rem;
+    font-weight: normal;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
     color: #fff;
 }
+
+h2 {
+    font-size: 1.1rem;
+    font-weight: normal;
+    margin-bottom: 1rem;
+    text-transform: lowercase;
+    border-left: 3px solid #e0e0e0;
+    padding-left: 1rem;
+    color: #fff;
+}
+
+h3 {
+    font-weight: normal;
+    margin-bottom: 0.5rem;
+    text-transform: lowercase;
+    color: #fff;
+}
+
+p {
+    margin-bottom: 1.5rem;
+    color: #d0d0d0;
+    font-weight: 500;
+}
+
+nav {
+    margin: 1rem 0;
+}
+
+nav a {
+    color: #e0e0e0;
+    text-decoration: none;
+    margin-right: 2rem;
+    font-size: 0.9rem;
+    text-transform: lowercase;
+    transition: all 0.2s ease;
+}
+
+nav a:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+
+main {
+    margin: 2rem 0;
+}
+
+section {
+    margin-bottom: 3rem;
+}
+
+article {
+    margin-bottom: 2rem;
+}
+
+blockquote {
+    border-left: 2px solid #e0e0e0;
+    padding-left: 1rem;
+    margin: 2rem 0;
+    font-style: italic;
+    opacity: 0.8;
+    color: #c0c0c0;
+}
+
+pre {
+    background-color: #111;
+    border: 1px solid #333;
+    padding: 1rem;
+    margin: 1rem 0;
+    font-family: inherit;
+    overflow-x: auto;
+    color: #e0e0e0;
+}
+
+ul {
+    margin: 1rem 0;
+    padding-left: 2rem;
+}
+
+li {
+    margin-bottom: 0.5rem;
+    color: #d0d0d0;
+    font-weight: 500;
+}
+
+footer {
+    border-top: 1px solid #e0e0e0;
+    padding-top: 1rem;
+    margin-top: 3rem;
+    font-size: 0.8rem;
+    opacity: 0.7;
+    text-align: center;
+    color: #b0b0b0;
+}
+
+a {
+    color: #e0e0e0;
+    text-decoration: underline;
+    transition: all 0.2s ease;
+}
+
+a:hover {
+    background-color: #e0e0e0;
+    color: #000;
+}
+
+small {
+    font-size: 0.8rem;
+    opacity: 0.6;
+    color: #888;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+@media (max-width: 767px) {
+    body {
+        padding: 1rem;
+        margin: 0;
+        font-size: 13px;
+    }
+    
+    nav a {
+        display: block;
+        margin: 0.5rem 0;
+    }
+}
+    
