@@ -1,1 +1,2 @@
 1. Add UNDE(under) key for keeping a page under a category specified in UNDE. Rendering the link for Category in the page in which UNDE is specified.
+2. Move html template from script to a seperate html file.
