@@ -20,14 +20,12 @@ body {
 @media (min-width: 768px) {
     body {
         max-width: 600px;
-        margin-left: 4rem;
     }
 }
 
 @media (min-width: 1024px) {
     body {
         max-width: 700px;
-        margin-left: 6rem;
     }
 }
 
@@ -82,7 +80,8 @@ nav a {
 }
 
 nav a:hover {
-    color: #fff;
+    color: #000;
+    background-color: #fff;
     text-decoration: underline;
 }
 
