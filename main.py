@@ -40,7 +40,8 @@ def write_data(glossary):
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-{description}
+<h2>{title}</h2>
+<p>{description}</p>
 </body>
 </html>
 """
