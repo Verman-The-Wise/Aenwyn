@@ -41,7 +41,10 @@ def write_data(glossary):
 </head>
 <body>
 <h2>{title}</h2>
+<main>
 {description}
+<footer><p>Aenwyn</p></footer>
+</main>
 </body>
 </html>
 """
