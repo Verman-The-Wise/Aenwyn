@@ -7,24 +7,34 @@ O = "to-world"
 os.makedirs(O, exist_ok=True) # creates the output DIR.
 shutil.copy("style.css", O)   # copies the style.css to output DIR.
 
-def parse_taia():
+def parse_kv():
+
     glossary = []
-    with open(I, "r") as FILE:
-        BLOK = {}
-        for line in FILE:
+    BLOK = {}
+    last_key = None
+
+    with open(I, "r") as file:
+        for line in file:
             line = line.strip()
-            if line:
-                key, val = line.split(" : ", 1)
-                BLOK[key] = val
+            if not line:
+                if BLOK:
+                    glossary.append(BLOK)
+                    BLOK = {}
+                    last_key = None
+                continue
+            if ' : ' in line:
+                key, value = line.split(" : ", 1)
+                BLOK[key] = value
+                last_key = key
             else:
-                glossary.append(BLOK)
-                BLOK = {}
+                if last_key:
+                    BLOK[last_key] = f"{BLOK[last_key]}\n{line}"
         if BLOK:
             glossary.append(BLOK)
 
-        return glossary
+    return glossary
         
-data = parse_taia()
+data = parse_kv()
 
 def write_data(glossary):
     for BLOK in glossary:
