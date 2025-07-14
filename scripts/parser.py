@@ -1,19 +1,19 @@
 import os
 import shutil
 
-I = "element/chronicle.kv"
+I_b = "element/chronicle.kv"
+I_p = "element/projects.kv"
 O = "to-world"
 
 os.makedirs(O, exist_ok=True) # creates the output DIR.
 shutil.copy("style.css", O)   # copies the style.css to output DIR.
-
 def parse_kv():
 
     glossary = []
     BLOK = {}
     last_key = None
 
-    with open(I, "r") as file:
+    with open(I_b, "r") as file:
         for line in file:
             line = line.strip()
             if not line:
@@ -34,24 +34,34 @@ def parse_kv():
 
     return glossary
         
-data = parse_kv()
+base_data = parse_kv()
 
-def write_data(glossary):
-    for BLOK in glossary:
-        title = BLOK.get("TITL", "Untitled")
-        description = BLOK.get("BODY", "No content available.")
+def parse_project():
 
-        with open("layout/base.html", "r") as file:
-            template_base = file.read()
+    glossary = []
+    BLOK = {}
+    last_key = None
+
+    with open(I_p, "r") as file:
+        for line in file:
+            line = line.strip()
+            if not line:
+                if BLOK:
+                    glossary.append(BLOK)
+                    BLOK = {}
+                    last_key = None
+                continue
+            if ' : ' in line:
+                key, value = line.split(" : ", 1)
+                BLOK[key] = value
+                last_key = key
+            else:
+                if last_key:
+                    BLOK[last_key] = f"{BLOK[last_key]}\n{line}"
+        if BLOK:
+            glossary.append(BLOK)
+
+    return glossary
         
-        html_base = template_base.format(title = title, description = description) 
+proj_data = parse_project()
 
-        url = title.replace(' ', '-').lower() + ".html"
-        with open(os.path.join(O, url), "w", encoding='utf-8') as h:
-            h.write(html_base)
-        print(url)
-    
-def main():
-    write_data(data)
-    
-main()
