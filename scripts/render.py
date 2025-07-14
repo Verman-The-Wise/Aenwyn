@@ -1,4 +1,5 @@
-from parser import base_data, proj_data, O
+from var import O, I_b, I_p
+from parser import base_data
 import os
 
 def write_data(glossary):
@@ -28,6 +29,5 @@ def write_data(glossary):
 
 def main():
     write_data(base_data)
-    write_data(proj_data)
     
 main()
