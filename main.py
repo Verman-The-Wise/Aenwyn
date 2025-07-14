@@ -40,27 +40,15 @@ def write_data(glossary):
     for BLOK in glossary:
         title = BLOK.get("TITL", "Untitled")
         description = BLOK.get("BODY", "No content available.")
-        html = f"""
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>{title}</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-<h2>{title}</h2>
-<main>
-{description}
-<footer><p>Aenwyn</p></footer>
-</main>
-</body>
-</html>
-"""
+
+        with open("layout/base.html", "r") as file:
+            template_base = file.read()
+        
+        html_base = template_base.format(title = title, description = description) 
+
         url = title.replace(' ', '-').lower() + ".html"
         with open(os.path.join(O, url), "w", encoding='utf-8') as h:
-            h.write(html)
+            h.write(html_base)
         print(url)
     
 def main():
